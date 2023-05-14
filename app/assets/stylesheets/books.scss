@@ -1,0 +1,128 @@
+/* ヘッダー */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.top-page-header {
+  background-color: #f1f8fe;
+  margin-bottom: 20px;
+  padding: 20px 0;
+}
+
+.inner {
+  width: 1024px;
+  margin: 0 auto;
+}
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  width: 300px;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.lists-right {
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+}
+
+.user-nickname {
+  margin-right: 3vw;
+  color: #333333;
+  font-weight: bold;
+}
+
+.logout {
+  color: #333333;
+}
+
+.login {
+  margin-right: 3vw;
+  color: #333333;
+}
+
+.sign-up {
+  color: #333333;
+}
+
+
+/* メイン画面 */
+.main-top {
+  text-align: right;
+}
+
+.post_button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 20px;
+  color: #fff;
+  background: #87CEFA;
+  border: 1px #87CEFA solid;
+  border-radius: 3px;
+  margin-right: 3vw;
+}
+
+.book-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-contents>.title {
+  font-size: 30px;
+}
+
+.book-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+}
+
+.book-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}
+
+.book-img-content {
+  position: relative;
+}
+
+.book-img {
+  width: 33vh;
+  height: 33vh;
+}
+
+.book-info {
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+}
+
+.book-title {
+  font-size: 2.5vh;
+}
+
+.book-impression {
+  font-size: 1.5vh;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.book-category {
+  font-size: 1.5vh;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+/* //本一覧 */

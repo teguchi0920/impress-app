@@ -1,0 +1,55 @@
+<header class="top-page-header">
+  <div class="inner">
+    <div class="nav">
+      <div class="lists-left">
+        <%= link_to "Impress-App", '#',class: "logo" %>
+      </div>
+      <ul class='lists-right'>
+      <%# if user_signed_in? %>
+        <li><%#= link_to current_user.nickname, "#", class: "user-nickname" %></li>
+        <li><%#= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+      <%# else %>
+        <li><%= link_to 'ログイン', "#", class: "login" %></li>
+        <li><%= link_to '新規登録', "#", class: "sign-up" %></li>
+      <%#end %>
+    </ul>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<%# メイン画面 %>
+
+<div class="main">
+  <%# 上部画面 %>
+  <div class="main-top">
+    <%= link_to "投稿する", '#', class: 'post_button' %>
+  </div>
+  <%# 投稿一覧 %>
+  <div class='book-contents'>
+    <h2 class='title'>
+      投稿一覧
+    </h2>
+    <ul class='book-lists'>
+      <li class='list'>
+        <div class='book-img-content'>
+          <img src="/images/本.jpeg" alt="">
+        </div>
+        <div class='book-info'>
+          <h3 class='book-title'>
+            本のタイトル
+          </h3>
+          <div class='book-impression'>
+            本の感想が入ります。１<br>
+            本の感想が入ります。２<br>
+            本の感想が入ります。３
+          </div>
+          <div class='book-category'>
+            本のカテゴリー</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
