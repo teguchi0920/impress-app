@@ -31,24 +31,24 @@
       投稿一覧
     </h2>
     <ul class='book-lists'>
-      <li class='list'>
-        <div class='book-img-content'>
-          <img src="/images/本.jpeg" alt="">
-        </div>
-        <div class='book-info'>
-          <h3 class='book-title'>
-            本のタイトル
-          </h3>
-          <div class='book-impression'>
-            本の感想が入ります。１<br>
-            本の感想が入ります。２<br>
-            本の感想が入ります。３
+      <% @books.each do |book| %>
+        <li class='list'>
+          <div class='book-img-content'>
+            <%= image_tag book.image, class: "book-img" %>
           </div>
-          <div class='book-category'>
-            本のカテゴリー</div>
+          <div class='book-info'>
+            <h3 class='book-title'>
+              <%= book.title %>
+            </h3>
+            <div class='book-impression'>
+              <%= truncate(book.impress, length: 50) %>
+            </div>
+            <div class='book-category'>
+              <%= book.book_category.name %>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>
