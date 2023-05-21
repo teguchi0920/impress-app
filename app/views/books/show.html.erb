@@ -1,1 +1,68 @@
-<h2>詳細画面のページです</h2>
+<header class="top-page-header">
+  <div class="inner">
+    <div class="nav">
+      <div class="lists-left">
+        <%= link_to "Impress-App", root_path,class: "logo" %>
+      </div>
+      <ul class='lists-right'>
+      <% if user_signed_in? %>
+        <li><%= link_to current_user.name, "#", class: "user-nickname" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+      <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+      <%end %>
+    </ul>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<%# 商品の概要 %>
+<div class="book-show">
+  <div class="book-box">
+    <h2 class="name">
+      <%= @book.title %>
+    </h2>
+    <div class="book-img-content">
+      <%= image_tag @book.image ,class:"item-box-img" %>
+    </div>
+
+    <% if user_signed_in? %>
+      <% if current_user.id == @book.user_id %>
+        <%= link_to "投稿の編集", '#', method: :get, class: "book-red-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除", '#', method: :delete, class:"book-destroy" %>
+      <% end %>
+    <% end %>
+
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-book">投稿者</th>
+          <td class="detail-value"><%= @book.user.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-book">カテゴリー</th>
+          <td class="detail-value"><%= @book.book_category.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-book">感想</th>
+          <td class="detail-value"><%= @book.impress %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <%# /商品の概要 %>
+
+  <div class="comment-box">
+    <form>
+      <textarea class="comment-text"></textarea>
+      <button type="submit" class="comment-btn">
+        <%#= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+        <span>コメントする<span>
+      </button>
+    </form>
+  </div>
+</div>
