@@ -33,6 +33,12 @@ class BooksController < ApplicationController
     end
   end
 
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to root_path
+  end
+
   private
   def book_params
     params.require(:book).permit(:image, :title, :impress, :book_category_id).merge(user_id: current_user.id)
