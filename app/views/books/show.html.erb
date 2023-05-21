@@ -32,7 +32,7 @@
       <% if current_user.id == @book.user_id %>
         <%= link_to "投稿の編集", edit_book_path(@book.id), class: "book-red-btn" %>
         <p class="or-text">or</p>
-        <%= link_to "削除", '#', method: :delete, class:"book-destroy" %>
+        <%= link_to "削除", book_path(@book.id), method: :delete, class:"book-destroy" %>
       <% end %>
     <% end %>
 
