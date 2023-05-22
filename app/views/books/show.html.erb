@@ -58,13 +58,13 @@
 
   <div class="comment-box">
     <% if user_signed_in? %>
-      <form>
-        <textarea class="comment-text"></textarea>
-        <button type="submit" class="comment-btn">
-          <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-          <span>コメントする<span>
-        </button>
-      </form>
+      <%= form_with(model: [@book, @comment], local: true) do |f|  %>
+        <%= f.text_area :comment, class: "comment-text" %>
+        <%= button_tag class: "comment-btn" do %>
+          <%= image_tag "comment.png", class: "comment-flag-icon", width: "20", height: "25" %>
+          <span>コメントする</span>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>
