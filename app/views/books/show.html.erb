@@ -66,5 +66,16 @@
         <% end %>
       <% end %>
     <% end %>
+    <ul class="comments_list">
+      <h4>＜コメント一覧＞</h4>
+      <% @comments.each do |comment| %>
+        <li class="comments_list">
+          <p>
+            <strong><%= link_to comment.user.name, '#', class: :comment_user %>：</strong>
+            <%= comment.comment %>
+          </p>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>

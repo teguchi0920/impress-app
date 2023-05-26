@@ -96,13 +96,6 @@
   resize: none;
 }
 
-.comment-warn {
-  padding: 10px;
-  font-size: 14px;
-  margin: 10px 0px;
-  text-align: left;
-}
-
 .comment-btn {
   line-height: 48px;
   background-color: #3CCACE;
@@ -124,4 +117,16 @@
   margin: 10px 5px 0 0;
 }
 
+
+.comments_list{
+  padding: 10px;
+  font-size: 14px;
+  margin: 10px 0px;
+  text-align: left;
+  list-style: none;
+}
+
+.comments_list a {
+  color: #57C3E9;
+}
 
