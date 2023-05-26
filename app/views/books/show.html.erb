@@ -25,7 +25,11 @@
       <%= @book.title %>
     </h2>
     <div class="book-img-content">
-      <%= image_tag @book.image ,class:"item-box-img" %>
+      <% if @book.image.present? %>
+        <%= image_tag @book.image ,class:"book-box-img" %>
+      <% else %>
+        <%= image_tag "no-image.png", class: "book-box-img" %>
+      <% end %>
     </div>
 
     <% if user_signed_in? %>

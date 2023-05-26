@@ -35,7 +35,11 @@
         <li class='list'>
           <%= link_to book_path(book.id) do %>
             <div class='book-img-content'>
+            <% if book.image.present? %>
               <%= image_tag book.image, class: "book-img" %>
+            <% else %>
+              <%= image_tag "no-image.png", class: "book-img" %>
+            <% end %>
             </div>
             <div class='book-info'>
               <h3 class='book-title'>
