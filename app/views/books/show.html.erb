@@ -57,12 +57,25 @@
   <%# /商品の概要 %>
 
   <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <button type="submit" class="comment-btn">
-        <%#= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>コメントする<span>
-      </button>
-    </form>
+    <% if user_signed_in? %>
+      <%= form_with(model: [@book, @comment], local: true) do |f|  %>
+        <%= f.text_area :comment, class: "comment-text" %>
+        <%= button_tag class: "comment-btn" do %>
+          <%= image_tag "comment.png", class: "comment-flag-icon", width: "20", height: "25" %>
+          <span>コメントする</span>
+        <% end %>
+      <% end %>
+    <% end %>
+    <ul class="comments_list">
+      <h4>＜コメント一覧＞</h4>
+      <% @comments.each do |comment| %>
+        <li class="comments_list">
+          <p>
+            <strong><%= link_to comment.user.name, '#', class: :comment_user %>：</strong>
+            <%= comment.comment %>
+          </p>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>
