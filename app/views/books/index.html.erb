@@ -51,12 +51,12 @@
               <div class='book-category'>
                 <%= book.book_category.name %>
               </div>
-              <div class='favorite-btn'>
-                <%= image_tag "heart.png", class: "favorite-icon", width: "35", height: "30" %>
-                <div class='favorite-count'>1</div>
-              </div>
             </div>
           <% end %>
+          <div class='favorite-btn'>
+            <%= image_tag "heart.png", class: "favorite-icon", width: "35", height: "30" %>
+            <div class='favorite-count'></div>
+          </div>
         </li>
       <% end %>
     </ul>
