@@ -2,6 +2,7 @@ class Book < ApplicationRecord
   belongs_to :user
   has_many :comments
   has_one_attached :image
+  has_many :favorites
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :book_category
