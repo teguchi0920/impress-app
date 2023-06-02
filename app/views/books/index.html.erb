@@ -1,22 +1,4 @@
-<header class="top-page-header">
-  <div class="inner">
-    <div class="nav">
-      <div class="lists-left">
-        <%= link_to "Impress-App", '#',class: "logo" %>
-      </div>
-      <ul class='lists-right'>
-      <% if user_signed_in? %>
-        <li><%= link_to current_user.name, "#", class: "user-nickname" %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-      <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-      <%end %>
-    </ul>
-      </ul>
-    </div>
-  </div>
-</header>
+<%= render partial: 'shared/header' %>
 
 <%# メイン画面 %>
 
@@ -43,7 +25,7 @@
             </div>
             <div class='book-info'>
               <h3 class='book-title'>
-                <%= book.title %>
+                <%= truncate(book.title, length: 17) %>
               </h3>
               <div class='book-impression'>
                 <%= truncate(book.impress, length: 50) %>

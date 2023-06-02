@@ -23,6 +23,7 @@
   width: 50%;
   background-color: white;
   padding-bottom: 70px;
+  min-height: 80vh;
 }
 
 .form-header {
@@ -34,7 +35,6 @@
 
 .form-header-text {
   line-height: 100px;
-  border-bottom: 1px solid #f5f5f5;
   font-weight: bold;
 }
 
