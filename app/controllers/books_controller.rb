@@ -1,6 +1,10 @@
 class BooksController < ApplicationController
   def index
+    if params[:keyword].present?
+      @book = Book.search(params[:keyword]).order('created_at DESC')
+    else
     @books = Book.all.order('created_at DESC')
+    end
   end
   
   def new
@@ -39,6 +43,11 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.destroy
     redirect_to root_path
+  end
+
+  def search
+    @books = Book.search(params[:keyword])
+    render 'search'
   end
 
   private

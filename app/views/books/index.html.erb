@@ -1,5 +1,8 @@
 <%= render partial: 'shared/header' %>
 
+<%# 検索画面 %>
+<%= render partial: 'shared/search' %>
+
 <%# メイン画面 %>
 
 <div class="main">
@@ -25,20 +28,20 @@
             </div>
             <div class='book-info'>
               <h3 class='book-title'>
-                <%= truncate(book.title, length: 17) %>
+                <%= truncate(book.title, length: 15) %>
               </h3>
               <div class='book-impression'>
-                <%= truncate(book.impress, length: 50) %>
+                <%= truncate(book.impress, length: 45) %>
               </div>
               <div class='book-category'>
                 <%= book.book_category.name %>
               </div>
             </div>
           <% end %>
-          <div class='favorite-btn'>
+          <%# <div class='favorite-btn'>
             <%= image_tag "heart.png", class: "favorite-icon", width: "35", height: "30" %>
-            <div class='favorite-count'></div>
-          </div>
+            <%# <div class='favorite-count'></div>
+          </div> %>
         </li>
       <% end %>
     </ul>
