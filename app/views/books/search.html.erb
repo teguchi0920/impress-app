@@ -1,0 +1,48 @@
+<%= render partial: 'shared/header' %>
+
+<%# 検索画面 %>
+<%= render partial: 'shared/search' %>
+
+<div class="main">
+  <div class='book-contents'>
+    <h2 class='title'>
+      検索結果
+    </h2>
+    <ul class='book-lists'>
+      <% if @books.present? %>
+        <% @books.each do |book| %>
+          <li class='list'>
+            <%= link_to book_path(book.id) do %>
+              <div class='book-img-content'>
+                <% if book.image.present? %>
+                  <%= image_tag book.image, class: "book-img" %>
+                <% else %>
+                  <%= image_tag "no-image.png", class: "book-img" %>
+                <% end %>
+              </div>
+              <div class='book-info'>
+                <h3 class='book-title'>
+                  <%= truncate(book.title, length: 15) %>
+                </h3>
+                <div class='book-impression'>
+                  <%= truncate(book.impress, length: 45) %>
+                </div>
+                <div class='book-category'>
+                  <%= book.book_category.name %>
+                </div>
+              </div>
+            <% end %>
+            <%# <div class='favorite-btn'>
+              <%= image_tag "heart.png", class: "favorite-icon", width: "35", height: "30" %>
+              <%# <div class='favorite-count'></div>
+            </div> %>
+          </li>
+        <% end %>
+      <% else %>
+        <div class='no-search'>
+          <div>該当する投稿はありません。</div><br>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+</div>

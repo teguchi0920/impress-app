@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :books
   has_many :comments
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_users, through: :favorites, source: :user
   
   validates :name, presence: true
 end

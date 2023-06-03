@@ -1,0 +1,51 @@
+/* ヘッダー */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.top-page-header {
+  background-color: #f1f8fe;
+  padding: 20px 0;
+}
+
+.inner {
+  width: 1024px;
+  margin: 0 auto;
+}
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  width: 300px;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.lists-right {
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+  font-size: 20px;
+}
+
+.user-nickname {
+  margin-right: 3vw;
+  color: #333333;
+  font-weight: bold;
+}
+
+.logout {
+  color: #333333;
+}
+
+.login {
+  margin-right: 3vw;
+  color: #333333;
+}
+
+.sign-up {
+  color: #333333;
+}

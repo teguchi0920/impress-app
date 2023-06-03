@@ -1,42 +1,29 @@
-<header class="top-page-header">
-  <div class="inner">
-    <div class="nav">
-      <div class="lists-left">
-        <%= link_to "Impress-App", root_path,class: "logo" %>
-      </div>
-      <ul class='lists-right'>
-      <% if user_signed_in? %>
-        <li><%= link_to current_user.name, "#", class: "user-nickname" %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-      <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-      <%end %>
-    </ul>
-      </ul>
-    </div>
-  </div>
-</header>
+<%= render partial: 'shared/header' %>
 
 <%# 商品の概要 %>
 <div class="book-show">
-  <div class="book-box">
+  <div class="left-section">
     <h2 class="name">
       <%= @book.title %>
     </h2>
     <div class="book-img-content">
-      <%= image_tag @book.image ,class:"item-box-img" %>
+      <% if @book.image.present? %>
+        <%= image_tag @book.image ,class:"book-box-img" %>
+      <% else %>
+        <%= image_tag "no-image.png", class: "book-box-img" %>
+      <% end %>
     </div>
+  </div>
 
+  <div class="right-section">
     <% if user_signed_in? %>
       <% if current_user.id == @book.user_id %>
-        <%= link_to "投稿の編集", edit_book_path(@book.id), class: "book-red-btn" %>
-        <p class="or-text">or</p>
-        <%= link_to "削除", book_path(@book.id), method: :delete, class:"book-destroy" %>
+        <div class="buttons">
+          <%= link_to "投稿の編集", edit_book_path(@book.id), class: "book-red-btn" %>
+          <%= link_to "削除", book_path(@book.id), method: :delete, class:"book-destroy" %>
+        </div>
       <% end %>
     <% end %>
-
-
     <table class="detail-table">
       <tbody>
         <tr>
@@ -53,29 +40,28 @@
         </tr>
       </tbody>
     </table>
-  </div>
-  <%# /商品の概要 %>
 
-  <div class="comment-box">
-    <% if user_signed_in? %>
-      <%= form_with(model: [@book, @comment], local: true) do |f|  %>
-        <%= f.text_area :comment, class: "comment-text" %>
-        <%= button_tag class: "comment-btn" do %>
-          <%= image_tag "comment.png", class: "comment-flag-icon", width: "20", height: "25" %>
-          <span>コメントする</span>
+    <div class="comment-box">
+      <% if user_signed_in? %>
+        <%= form_with(model: [@book, @comment], local: true) do |f|  %>
+          <%= f.text_area :comment, class: "comment-text" %>
+          <%= button_tag class: "comment-btn" do %>
+            <%= image_tag "comment.png", class: "comment-flag-icon", width: "20", height: "25" %>
+            <span>コメントする</span>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
-    <ul class="comments_list">
-      <h4>＜コメント一覧＞</h4>
-      <% @comments.each do |comment| %>
-        <li class="comments_list">
-          <p>
-            <strong><%= link_to comment.user.name, '#', class: :comment_user %>：</strong>
-            <%= comment.comment %>
-          </p>
-        </li>
-      <% end %>
-    </ul>
+      <ul class="comments_list">
+        <h4>＜コメント一覧＞</h4>
+        <% @comments.each do |comment| %>
+          <li class="comments_list">
+            <p>
+              <strong><%= link_to comment.user.name, '#', class: :comment_user %>：</strong>
+              <%= comment.comment %>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
